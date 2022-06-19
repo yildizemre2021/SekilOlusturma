@@ -19,8 +19,18 @@ namespace SekilOlusturma
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            dortgen1.x = e.Location.X;
-            dortgen1.y = e.Location.Y;
+            if (button1.BackColor == Color.Red)
+            {
+                dortgen1.x = e.Location.X;
+                dortgen1.y = e.Location.Y;
+
+            }
+            else if (button2.BackColor == Color.Red)
+            {
+                elips1.x = e.Location.X;
+                elips1.y = e.Location.Y;
+
+            }
 
         }
 
@@ -34,10 +44,10 @@ namespace SekilOlusturma
 
                 listBox1.Items.Add("Sekil'in Alani " + (dortgen1.alanHesaplama()).ToString());
             }
-            else if(button2.BackColor == Color.Red)
+            else if (button2.BackColor == Color.Red)
             {
-                elips1.width = e.Location.X - dortgen1.x;
-                elips1.height = e.Location.Y - dortgen1.y;
+                elips1.width = e.Location.X - elips1.x;
+                elips1.height = e.Location.Y - elips1.y;
                 DrawEllipse(elips1.x, elips1.y, elips1.width, elips1.height);
                 listBox1.Items.Add("Sekil'in Alani " + (elips1.alanHesaplama()).ToString());
             }
